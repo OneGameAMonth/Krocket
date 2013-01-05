@@ -3,17 +3,17 @@ class Star
 
     def initialize(animation)
         @animation = animation
-        @color = Gosu::Color.new(0xff000000)
-        @color.red = rand(256 - 40) + 40
-        @color.green = rand(256 - 40) + 40
-        @color.blue = rand(256 - 40) + 40
-        @x = rand * $screenWidth
-        @y= rand * $screenHeight
+        @colour = Gosu::Color.new(0xff000000)
+        @colour.red = rand(256 - 40) + 40
+        @colour.green = rand(256 - 40) + 40
+        @colour.blue = rand(256 - 40) + 40
+        @x = rand * ($width - 50)
+        @y= rand * ($height - 50)
     end
 
     def draw
         img = @animation[Gosu::milliseconds / 100 % @animation.size];
         img.draw(@x -img.width / 2.0, @y -img.height / 2.0,
-                 ZOrder::Stars, 1, 1, @color, :add)
+                 ZOrder::Stars, 1, 1, @colour, :add)
     end
 end
